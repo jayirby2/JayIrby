@@ -1,4 +1,9 @@
 # Jay Irby encoder
+def encode(pass):
+    encoded_pass = ''
+    for i in password:
+        encoded_pass += str((int(i) + 3))
+    return encoded_pass
 def main():
     def menu():
         print('Menu')
@@ -14,18 +19,14 @@ def main():
         if user_input == 1:
             print('Please enter your password to encode:', end=' ')
             password = str(input())
-            encoded_pass = ''
-            for i in password:
-                encoded_pass += str((int(i) + 3))
+            encoded_pass = encoder(password)
             print('Your password has been encoded and stored!')
             print('')
             menu()
             user_input = int(input())
 
         elif user_input == 2:
-            original_pass = ''
-            for i in encoded_pass:
-                original_pass += str((int(i)-3))
+            decode(encoded_pass)
             print(f'The encoded password is {encoded_pass}, and the original password is {original_pass}')
             print('')
             menu()
